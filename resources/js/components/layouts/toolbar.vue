@@ -11,9 +11,7 @@
       <span class="hidden-sm-and-down">RMH Assets Management System</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn icon>
-      <v-icon>apps</v-icon>
-    </v-btn>
+    <span>{{ userName }}</span>
     <v-btn icon>
       <v-icon>notifications</v-icon>
     </v-btn>
@@ -40,6 +38,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'toolbar',
   data: () => ({
@@ -66,6 +66,9 @@ export default {
       { icon: 'keyboard', text: 'MHP Mobile' }
     ]
   }),
+  computed: {
+    ...mapGetters(['userName'])
+  },
   methods: {
     toggleNavigation() {
       this.$store.commit('toggleNavigation', !this.$store.state.drawer)

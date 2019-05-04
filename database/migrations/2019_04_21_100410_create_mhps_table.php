@@ -32,6 +32,7 @@ class CreateMhpsTable extends Migration
             $table->string('printer_mapped')->nullable();
             $table->string('replaced')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

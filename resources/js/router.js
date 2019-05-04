@@ -12,14 +12,10 @@ const routes = [
     { path: '/rp', component: () => import('./pages/rp'), meta: { requiresAuth: true } },
     { path: '/mhp', component: () => import('./pages/mhp'), meta: { requiresAuth: true } },
     { path: '/vidrl', component: () => import('./pages/vidrl'), meta: { requiresAuth: true } },
-    { path: '/removeditems', component: () => import('./pages/removeditems'), meta: { requiresAuth: true },
-        children: [
-            { path: 'rmh', component: () => import('./pages/removeditems/removedrmh') },
-            { path: 'rp', component: () => import('./pages/removeditems/removedrp') },
-            { path: 'mhp', component: () => import('./pages/removeditems/removedmhp') },
-            { path: 'vidrl', component: () => import('./pages/removeditems/removedvidrl') }
-        ]
-    },
+    { path: '/removed-rmh', component: () => import('./pages/removeditems/removedrmh') },
+    { path: '/removed-rp', component: () => import('./pages/removeditems/removedrp') },
+    { path: '/removed-mhp', component: () => import('./pages/removeditems/removedmhp') },
+    { path: '/removed-vidrl', component: () => import('./pages/removeditems/removedvidrl') },
     { path: '/rmhmobile', component: () => import('./pages/rmhmobile'), meta: { requiresAuth: false } },
     { path: '/mhpmobile', component: () => import('./pages/mhpmobile'), meta: { requiresAuth: false } }
 ]

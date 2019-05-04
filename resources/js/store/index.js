@@ -13,7 +13,9 @@ const store = new Vuex.Store({
   getters: {
     authenticated: state => state.authUser !== null,
     accessToken: state =>
-      state.authUser !== null ? state.authUser.access_token : null
+      state.authUser !== null ? state.authUser.access_token : null,
+    userName: state =>
+      state.authUser !== null ? state.authUser.username : null
   },
   mutations: {
     toggleNavigation(state, drawer) {

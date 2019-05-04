@@ -155,7 +155,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedItem.id !== undefined ? 'Edit RP Assets' : 'Create New RP Assets'
+      return this.editedItem.id !== undefined ? 'Edit RMH Assets' : 'Create RMH Assets'
     }
   },
   methods: {

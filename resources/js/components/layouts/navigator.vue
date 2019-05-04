@@ -85,10 +85,10 @@ export default {
           text: 'Removed Items',
           model: false,
           children: [
-            { icon: 'delete', text: 'Removed RMH', link: '/removeditems/rmh' },
-            { icon: 'delete', text: 'Removed RP', link: '/removeditems/rp' },
-            { icon: 'delete', text: 'Removed MHP', link: '/removeditems/mhp' },
-            { icon: 'delete', text: 'Removed VIDRL', link: '/removeditems/vidrl' }
+            { icon: 'delete', text: 'Removed RMH', link: '/removed-rmh' },
+            { icon: 'delete', text: 'Removed RP', link: '/removed-rp' },
+            { icon: 'delete', text: 'Removed MHP', link: '/removed-mhp' },
+            { icon: 'delete', text: 'Removed VIDRL', link: '/removed-vidrl' }
           ]
         },
         { icon: 'phonelink', text: 'RMH Mobile', link: '/rmhmobile' },

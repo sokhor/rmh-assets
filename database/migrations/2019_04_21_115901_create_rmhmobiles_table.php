@@ -31,6 +31,7 @@ class CreateRmhmobilesTable extends Migration
             $table->string('mac_address')->nullable();
             $table->string('replaced')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
