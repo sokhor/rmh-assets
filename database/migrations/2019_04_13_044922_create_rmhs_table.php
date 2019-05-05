@@ -17,10 +17,10 @@ class CreateRmhsTable extends Migration
             $table->bigIncrements('id');
             $table->string('asset_code')->unique();
             $table->string('os');
-            $table->string('building');
+            $table->string('building')->nullable();
             $table->string('campus');
-            $table->string('department');
-            $table->string('floor');
+            $table->string('department')->nullable();
+            $table->string('floor')->nullable();
             $table->string('location')->nullable();
             $table->string('serial_number');
             $table->string('make');

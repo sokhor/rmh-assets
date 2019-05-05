@@ -80,39 +80,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'dashboard',
   data: function data() {
@@ -145,26 +112,23 @@ var render = function() {
     [
       _c(
         "v-flex",
-        { attrs: { "pa-3": "", "mp-2": "", md6: "" } },
+        { attrs: { "pa-3": "", "mp-2": "", xs12: "" } },
         [
           _c(
             "v-hover",
             [
               _c(
                 "v-card",
-                {
-                  staticClass: "white--text",
-                  attrs: { color: "cyan darken-2" }
-                },
+                { staticClass: "white--text", attrs: { color: "#FF9800" } },
                 [
                   _c(
                     "v-layout",
                     [
-                      _c("v-flex", { attrs: { xs5: "" } }, [
-                        _c("i", {
-                          staticClass: "fas fa-sitemap icon-7x pull-left"
-                        })
-                      ]),
+                      _c(
+                        "v-flex",
+                        { attrs: { xs5: "", "pa-2": "", "py-3": "" } },
+                        [_c("i", { staticClass: "fab fa-buffer fa-7x" })]
+                      ),
                       _vm._v(" "),
                       _c(
                         "v-flex",
@@ -174,42 +138,26 @@ var render = function() {
                             "v-card-title",
                             { attrs: { "primary-title": "" } },
                             [
-                              _c("div", [
-                                _c("div", { staticClass: "headline" }, [
-                                  _vm._v("Supermodel")
-                                ]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v("Foster the People")]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v("(2014)")])
-                              ])
+                              _c(
+                                "div",
+                                [
+                                  _c("div", { staticClass: "headline" }, [
+                                    _vm._v("RMH Assets")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-divider", { attrs: { light: "" } }),
+                                  _vm._v(" "),
+                                  _c("div", [_vm._v("Total Devices")]),
+                                  _vm._v(" "),
+                                  _c("div", [_vm._v("3162")])
+                                ],
+                                1
+                              )
                             ]
                           )
                         ],
                         1
                       )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider", { attrs: { light: "" } }),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-actions",
-                    { staticClass: "pa-3" },
-                    [
-                      _vm._v("\n          Rate this album\n          "),
-                      _c("v-spacer"),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")])
                     ],
                     1
                   )
@@ -225,7 +173,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-flex",
-        { attrs: { "pa-3": "", "mp-2": "", md6: "" } },
+        { attrs: { "pa-3": "", "mp-2": "", xs12: "" } },
         [
           _c(
             "v-hover",
@@ -234,7 +182,7 @@ var render = function() {
                 "v-card",
                 {
                   staticClass: "white--text",
-                  attrs: { color: "cyan darken-2" }
+                  attrs: { color: "blue-grey darken-2" }
                 },
                 [
                   _c(
@@ -242,18 +190,8 @@ var render = function() {
                     [
                       _c(
                         "v-flex",
-                        { attrs: { xs5: "" } },
-                        [
-                          _c("v-img", {
-                            attrs: {
-                              src:
-                                "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-                              height: "125px",
-                              contain: ""
-                            }
-                          })
-                        ],
-                        1
+                        { attrs: { xs5: "", "pa-2": "", "py-3": "" } },
+                        [_c("i", { staticClass: "fas fa-boxes fa-7x" })]
                       ),
                       _vm._v(" "),
                       _c(
@@ -264,42 +202,26 @@ var render = function() {
                             "v-card-title",
                             { attrs: { "primary-title": "" } },
                             [
-                              _c("div", [
-                                _c("div", { staticClass: "headline" }, [
-                                  _vm._v("Supermodel")
-                                ]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v("Foster the People")]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v("(2014)")])
-                              ])
+                              _c(
+                                "div",
+                                [
+                                  _c("div", { staticClass: "headline" }, [
+                                    _vm._v("RP Assets")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-divider", { attrs: { light: "" } }),
+                                  _vm._v(" "),
+                                  _c("div", [_vm._v("Total Devices")]),
+                                  _vm._v(" "),
+                                  _c("div", [_vm._v("463")])
+                                ],
+                                1
+                              )
                             ]
                           )
                         ],
                         1
                       )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider", { attrs: { light: "" } }),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-actions",
-                    { staticClass: "pa-3" },
-                    [
-                      _vm._v("\n          Rate this album\n          "),
-                      _c("v-spacer"),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")])
                     ],
                     1
                   )
@@ -315,35 +237,22 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-flex",
-        { attrs: { "pa-3": "", "mp-2": "", md6: "" } },
+        { attrs: { "pa-3": "", "mp-2": "", xs12: "" } },
         [
           _c(
             "v-hover",
             [
               _c(
                 "v-card",
-                {
-                  staticClass: "white--text",
-                  attrs: { color: "cyan darken-2" }
-                },
+                { staticClass: "white--text", attrs: { color: "#4CAF50" } },
                 [
                   _c(
                     "v-layout",
                     [
                       _c(
                         "v-flex",
-                        { attrs: { xs5: "" } },
-                        [
-                          _c("v-img", {
-                            attrs: {
-                              src:
-                                "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-                              height: "125px",
-                              contain: ""
-                            }
-                          })
-                        ],
-                        1
+                        { attrs: { xs5: "", "pa-2": "", "py-3": "" } },
+                        [_c("i", { staticClass: "fab fa-accusoft fa-7x" })]
                       ),
                       _vm._v(" "),
                       _c(
@@ -354,42 +263,26 @@ var render = function() {
                             "v-card-title",
                             { attrs: { "primary-title": "" } },
                             [
-                              _c("div", [
-                                _c("div", { staticClass: "headline" }, [
-                                  _vm._v("Supermodel")
-                                ]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v("Foster the People")]),
-                                _vm._v(" "),
-                                _c("div", [_vm._v("(2014)")])
-                              ])
+                              _c(
+                                "div",
+                                [
+                                  _c("div", { staticClass: "headline" }, [
+                                    _vm._v("MHP Assets")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-divider", { attrs: { light: "" } }),
+                                  _vm._v(" "),
+                                  _c("div", [_vm._v("Total Devices")]),
+                                  _vm._v(" "),
+                                  _c("div", [_vm._v("1432")])
+                                ],
+                                1
+                              )
                             ]
                           )
                         ],
                         1
                       )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider", { attrs: { light: "" } }),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-actions",
-                    { staticClass: "pa-3" },
-                    [
-                      _vm._v("\n          Rate this album\n          "),
-                      _c("v-spacer"),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")]),
-                      _vm._v(" "),
-                      _c("v-icon", [_vm._v("star_border")])
                     ],
                     1
                   )

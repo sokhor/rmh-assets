@@ -1,104 +1,71 @@
 <template>
 <v-layout>
-  <v-flex pa-3 mp-2 md6>
+  <v-flex pa-3 mp-2 xs12>
     <v-hover>
-      <v-card color="cyan darken-2" class="white--text">
+      <v-card color="#FF9800" class="white--text">
           <v-layout>
-          <v-flex xs5>
-              <i class="fas fa-sitemap icon-7x pull-left"></i>
+          <v-flex xs5 pa-2 py-3>
+              <i class="fab fa-buffer fa-7x"></i>
           </v-flex>
           <v-flex xs7>
               <v-card-title primary-title>
               <div>
-                  <div class="headline">Supermodel</div>
-                  <div>Foster the People</div>
-                  <div>(2014)</div>
+                  <div class="headline">RMH Assets</div>
+                  <v-divider light></v-divider>
+                  <div>Total Devices</div>
+                  <div>3162</div>
               </div>
               </v-card-title>
           </v-flex>
           </v-layout>
-          <v-divider light></v-divider>
-          <v-card-actions class="pa-3">
-          Rate this album
-          <v-spacer></v-spacer>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          </v-card-actions>
       </v-card>
     </v-hover>
   </v-flex>
 
-  <v-flex pa-3 mp-2 md6>
+  <v-flex pa-3 mp-2 xs12>
     <v-hover>
-      <v-card color="cyan darken-2" class="white--text">
+      <v-card color="blue-grey darken-2" class="white--text">
           <v-layout>
-          <v-flex xs5>
-              <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/foster.jpg"
-              height="125px"
-              contain
-              ></v-img>
+          <v-flex xs5 pa-2 py-3>
+            <i class="fas fa-boxes fa-7x"></i>
           </v-flex>
           <v-flex xs7>
               <v-card-title primary-title>
               <div>
-                  <div class="headline">Supermodel</div>
-                  <div>Foster the People</div>
-                  <div>(2014)</div>
+                  <div class="headline">RP Assets</div>
+                  <v-divider light></v-divider>
+                  <div>Total Devices</div>
+                  <div>463</div>
               </div>
               </v-card-title>
           </v-flex>
           </v-layout>
-          <v-divider light></v-divider>
-          <v-card-actions class="pa-3">
-          Rate this album
-          <v-spacer></v-spacer>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          </v-card-actions>
       </v-card>
     </v-hover>
   </v-flex>
-  <v-flex pa-3 mp-2 md6>
+
+  <v-flex pa-3 mp-2 xs12>
     <v-hover>
-      <v-card color="cyan darken-2" class="white--text">
+      <v-card color="#4CAF50" class="white--text">
           <v-layout>
-          <v-flex xs5>
-              <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/foster.jpg"
-              height="125px"
-              contain
-              ></v-img>
+          <v-flex xs5 pa-2 py-3>
+            <i class="fab fa-accusoft fa-7x"></i>
           </v-flex>
           <v-flex xs7>
               <v-card-title primary-title>
               <div>
-                  <div class="headline">Supermodel</div>
-                  <div>Foster the People</div>
-                  <div>(2014)</div>
+                  <div class="headline">MHP Assets</div>
+                  <v-divider light></v-divider>
+                  <div>Total Devices</div>
+                  <div>1432</div>
               </div>
               </v-card-title>
           </v-flex>
           </v-layout>
-          <v-divider light></v-divider>
-          <v-card-actions class="pa-3">
-          Rate this album
-          <v-spacer></v-spacer>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          <v-icon>star_border</v-icon>
-          </v-card-actions>
       </v-card>
     </v-hover>
   </v-flex>
+  
   </v-layout>
 </template>
 
