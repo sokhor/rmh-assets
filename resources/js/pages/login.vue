@@ -29,7 +29,7 @@
             ></v-text-field>
           </v-card-text>          
           <v-card-actions>
-            <v-btn color="primary" type="submit">Login</v-btn>
+            <v-btn color="#117fa2" type="submit">Login</v-btn>
             <v-spacer></v-spacer>
             <a href="#">
               Forgot Your Password?

@@ -22,7 +22,7 @@ class CreateRmhmobilesTable extends Migration
             $table->string('department')->nullable();
             $table->string('floor')->nullable();
             $table->string('location')->nullable();
-            $table->string('serial_number');
+            $table->string('serial_number')->nullable();
             $table->string('make');
             $table->string('model');
             $table->string('ram')->nullable();
