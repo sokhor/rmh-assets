@@ -4,14 +4,14 @@ Route::post('login', 'Auth\LoginController@login');
 
 Route::group(['middleware' => 'auth:api'], function() {
     
-    Route::apiResource('rmh', 'RmhController');
     Route::post('rmh/import', 'RmhImportController');  
-    Route::get('rmh/export', 'RmhExportController');    
+    Route::get('rmh/export', 'RmhExportController'); 
+    Route::apiResource('rmh', 'RmhController');   
     Route::get('removed-rmh', 'RmhRemovedController@index');
     
-    Route::apiResource('rp', 'RpController');
     Route::post('rp/import', 'RpImportController');
     Route::get('rp/export', 'RpExportController');
+    Route::apiResource('rp', 'RpController');
     Route::get('removed-rp', 'RpRemovedController@index');
 
     Route::apiResource('mhp', 'MhpController');

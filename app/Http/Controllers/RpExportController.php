@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Exports\RpsExport;
 use Maatwebsite\Excel\Excel;
+use App\Http\Controllers\Controller;
 
 class RpExportController extends Controller
 {

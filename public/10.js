@@ -230,7 +230,9 @@ var render = function() {
                     [
                       _c(
                         "v-btn",
-                        { attrs: { color: "primary", type: "submit" } },
+                        {
+                          attrs: { dark: "", color: "#117fa2", type: "submit" }
+                        },
                         [_vm._v("Login")]
                       ),
                       _vm._v(" "),

@@ -42,7 +42,31 @@ const actions = {
     .catch(error => {
         return Promise.reject(error.response.data)
     })
-  }
+  },
+  importExcel(context, excelFile) {
+    let formData = new FormData()
+    formData.append('excelFile', excelFile)
+
+    return httpClient.post('/api/mhp/import', formData, {
+      headers: {
+          'Content-Type': 'multipart/form-data'
+      }
+    })
+  },
+  exportExcel(context) {
+    return httpClient.get('/api/mhp/export', {
+      responseType: 'arraybuffer'
+    })
+  },
+  fetchRemoved(context, { search, sortBy, descending, page, rowsPerPage } = {}) {
+    return httpClient.get('/api/removed-mhp', { params: { search, sortBy, descending, page, rowsPerPage }})
+    .then(response => {
+      return response.data
+    })
+    .catch(error => {
+        return Promise.reject(error.response.data)
+    })
+  },
 }
 
 export default {

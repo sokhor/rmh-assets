@@ -50,7 +50,7 @@
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn flat @click="$emit('close')">Cancel</v-btn>
-      <v-btn color="primary" @click="save">Save</v-btn>
+      <v-btn dark color="#117fa2" @click="save">Save</v-btn>
     </v-card-actions>
   </v-card>
 </template>

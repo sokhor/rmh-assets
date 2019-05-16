@@ -26,7 +26,9 @@
           :loading="loading"
         >
           <template v-slot:items="props">
-            <td>{{ props.item.username }}</td>            
+            <td>
+              <a href="#" @click="editItem(props.item)"> {{ props.item.username }}</a>
+            </td>        
             <td>{{ props.item.email }}</td>            
             <td>{{ props.item.department }}</td>            
             <td>{{ props.item.telephone }}</td>
@@ -129,7 +131,7 @@ export default {
     },
     async deleteItem (item) {      
       try {
-        await this.$refs.confirmDelete.open('Delete', 'Are you sure?')        
+        await this.$refs.confirmDelete.open('Delete', 'Are you sure want to delete this item?')        
         let response = await this.$store.dispatch('user/destroy', item.id)
         this.snackbar = true
         this.snackbarColor = 'success'

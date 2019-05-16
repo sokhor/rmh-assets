@@ -5,7 +5,10 @@ namespace App\Imports;
 use App\Rp;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 use Illuminate\Support\Carbon;
+
+HeadingRowFormatter::default('none');
 
 class RpsImport implements ToModel, WithHeadingRow
 {
@@ -17,21 +20,21 @@ class RpsImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Rp([
-            'asset_code' => $row['asset_code'],
-            'os' => $row['os'],
-            'building' => $row['building'],
-            'campus' => $row['campus'],
-            'department' => $row['department'],
-            'floor' => $row['floor'],
-            'location' => isset($row['location']) ? $row['location'] : null,
-            'serial_number' => $row['serial_number'],
-            'make' => $row['make'],
-            'model' => $row['model'],
-            'ram' => isset($row['ram']) ? $row['ram'] : null,
-            'notes' => isset($row['notes']) ? $row['notes'] : null,
-            'purchase_date' => isset($row['purchase_date']) ? $this->transformDate($row['purchase_date']) : null,
-            'mac_address' => isset($row['mac_address']) ? $row['mac_address'] : null,
-            'replaced' => isset($row['replaced']) ? $row['replaced'] : null,
+            'asset_code' => $row['Asset'],
+            'os' => isset($row['OS']) ? $row['OS']: null,
+            'building' => isset($row['Building']) ? $row['Building']: null,
+            'campus' => isset($row['Campus']) ? $row['Campus']: null,
+            'department' => isset($row['Department']) ? $row['Department']: null,
+            'floor' => isset($row['Floor']) ? $row['Floor']: null,
+            'location' => isset($row['Location']) ? $row['Location'] : null,
+            'serial_number' => isset($row['Serial Number']) ? $row['Serial Number']: null,
+            'make' => isset($row['Make']) ? $row['Make']: null,
+            'model' => isset($row['Model']) ? $row['Model']: null,
+            'ram' => isset($row['RAM']) ? $row['RAM'] : null,
+            'notes' => isset($row['Notes']) ? $row['Notes'] : null,
+            'purchase_date' => isset($row['Purchase Date']) ? $this->transformDate($row['Purchase Date']) : null,
+            'mac_address' => isset($row['MAC Address']) ? $row['MAC Address'] : null,
+            'replaced' => isset($row['Replaced']) ? $row['Replaced'] : null,
         ]);
     }
 

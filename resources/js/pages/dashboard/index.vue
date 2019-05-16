@@ -2,7 +2,7 @@
 <v-layout>
   <v-flex pa-3 mp-2 xs12>
     <v-hover>
-      <v-card color="#FF9800" class="white--text">
+      <v-card color="#FF9800" class="white--text card-dash" @click="$router.push('/rmh')">
           <v-layout>
           <v-flex xs5 pa-2 py-3>
               <i class="fab fa-buffer fa-7x"></i>
@@ -24,7 +24,7 @@
 
   <v-flex pa-3 mp-2 xs12>
     <v-hover>
-      <v-card color="blue-grey darken-2" class="white--text">
+      <v-card color="blue-grey darken-2" class="white--text card-dash" @click="$router.push('/rp')"> 
           <v-layout>
           <v-flex xs5 pa-2 py-3>
             <i class="fas fa-boxes fa-7x"></i>
@@ -46,7 +46,7 @@
 
   <v-flex pa-3 mp-2 xs12>
     <v-hover>
-      <v-card color="#4CAF50" class="white--text">
+      <v-card color="#4CAF50" class="white--text card-dash" @click="$router.push('/mhp')">
           <v-layout>
           <v-flex xs5 pa-2 py-3>
             <i class="fab fa-accusoft fa-7x"></i>
@@ -78,3 +78,9 @@
     })
   }
 </script>
+
+<style scoped>
+.card-dash {
+  cursor: pointer;
+}
+</style>

@@ -16,15 +16,15 @@ class CreateRpsTable extends Migration
         Schema::create('rps', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('asset_code')->unique();
-            $table->string('os');
+            $table->string('os')->nullable();
             $table->string('building')->nullable();
-            $table->string('campus');
+            $table->string('campus')->nullable();
             $table->string('department')->nullable();
             $table->string('floor')->nullable();
             $table->string('location')->nullable();
             $table->string('serial_number')->nullable();
-            $table->string('make');
-            $table->string('model');
+            $table->string('make')->nullable();
+            $table->string('model')->nullable();
             $table->string('ram')->nullable();
             $table->text('notes')->nullable();
             $table->date('purchase_date')->nullable();

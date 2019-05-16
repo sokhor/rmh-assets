@@ -118,7 +118,7 @@
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn flat @click="$emit('close')">Cancel</v-btn>
-      <v-btn color="primary" @click="save">Save</v-btn>
+      <v-btn dark color="#117fa2" @click="save">Save</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -155,7 +155,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedItem.id !== undefined ? 'Edit RMH Assets' : 'Create RMH Assets'
+      return this.editedItem.id !== undefined ? 'Edit RP Assets' : 'Create RP Assets'
     }
   },
   methods: {

@@ -3,13 +3,14 @@
 namespace App\Exports;
 
 use App\Rmh;
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\FromCollection;
 
 class RmhsExport implements FromCollection, WithHeadings
 {
     use Exportable;
+    
     /**
     * @return \Illuminate\Support\Collection
     */

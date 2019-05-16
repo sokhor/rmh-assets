@@ -456,6 +456,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -559,7 +561,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return this.$refs.confirmDelete.open('Delete', 'Are you sure?');
+                return this.$refs.confirmDelete.open('Delete', 'Are you sure want to delete this item?');
 
               case 3:
                 _context2.next = 5;
@@ -915,7 +917,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-btn",
-            { attrs: { color: "primary" }, on: { click: _vm.save } },
+            { attrs: { dark: "", color: "#117fa2" }, on: { click: _vm.save } },
             [_vm._v("Save")]
           )
         ],
@@ -1171,7 +1173,20 @@ var render = function() {
                       key: "items",
                       fn: function(props) {
                         return [
-                          _c("td", [_vm._v(_vm._s(props.item.username))]),
+                          _c("td", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v(" " + _vm._s(props.item.username))]
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.item.email))]),
                           _vm._v(" "),

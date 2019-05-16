@@ -29,12 +29,15 @@
         <v-data-table
           :headers="headers"
           :items="items"
+          :rows-per-page-items="rowsPerPageItems"
           :pagination.sync="pagination"
           :total-items="totalItems"
           :loading="loading"
         >
           <template v-slot:items="props">            
-            <td>{{ props.item.asset_code }}</td>
+            <td>
+              <a href="#" @click.prevent="editItem(props.item)">{{props.item.asset_code }}</a>
+            </td>
             <td>{{ props.item.os }}</td>
             <td>{{ props.item.building }}</td>
             <td>{{ props.item.campus }}</td>
@@ -89,7 +92,7 @@
     >
       {{ snackbarText }}
     </v-snackbar>
-    <input type="file" id="excelFile" ref="excelFile" @change="importExcel"/>
+    <input type="file" id="excelFile" ref="excelFile" @change="importExcel" style="display: none;"/>
   </v-layout>
 </template>
 
@@ -110,7 +113,10 @@ export default {
       totalItems: 0,
       items: [],
       loading: false,
-      pagination: {},
+      rowsPerPageItems: [10, 15, 20, 25, 30, 35, 40],
+      pagination: {
+        rowsPerPage: 15
+      },
       headers: [
         {
           text: 'Asset',
@@ -195,7 +201,9 @@ export default {
 
         this.fetchData()
       } catch (error) {
-        console.error(error)
+          this.snackbar = true
+          this.snackbarColor = 'error'
+          this.snackbarText = error.response.data.message
       }
 
       this.importing = false

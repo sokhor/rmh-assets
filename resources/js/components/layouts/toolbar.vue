@@ -11,7 +11,9 @@
       <span class="hidden-sm-and-down">RMH Assets Management System</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <span>{{ userName }}</span>
+    <span>
+      <a href="#" @click="$router.push('/user')" class="white--text"> {{ userName }}</a>
+    </span>
     <v-btn icon>
       <v-icon>notifications</v-icon>
     </v-btn>
@@ -19,7 +21,7 @@
       <template v-slot:activator="{ on }">
         <v-btn 
           icon
-          color="primary"
+          color: primary
           dark
           v-on="on"
         >
