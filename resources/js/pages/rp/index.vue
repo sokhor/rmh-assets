@@ -103,7 +103,7 @@ import FormComponent from './form'
 import ConfirmDialog from '@/components/confirm-dialog.vue'
 
 export default {
-  name: 'rmh',
+  name: 'rp',
   components: { FormComponent, ConfirmDialog },
   data () {
     return {

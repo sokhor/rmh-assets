@@ -6,11 +6,16 @@ use App\Vidrl;
 use Illuminate\Http\Request;
 use App\Http\Resources\VidrlResource;
 
-class VidrlController extends Controller
+class VidrlRemovedController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $vidrl = Vidrl::when(request()->search, function($query) {
+        $vidrl = Vidrl::onlyTrashed()->when(request()->search, function($query) {
             $query
             ->orWhere('asset_code', 'LIKE', '%' . request()->search . '%')
             ->orWhere('os', 'LIKE', '%' . request()->search . '%')
@@ -35,6 +40,16 @@ class VidrlController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,39 +57,29 @@ class VidrlController extends Controller
      */
     public function store(Request $request)
     {
-        $requestData = $request->validate([
-            'asset_code' => 'required',
-            'os' => 'nullable',
-            'building' => 'nullable',
-            'campus' => 'nullable',
-            'department' => 'nullable',
-            'floor' => 'nullable',
-            'location' => 'nullable',
-            'serial_number' => 'nullable',
-            'make' => 'nullable',
-            'model' => 'nullable',
-            'ram' => 'nullable',
-            'notes' => 'nullable',
-            'purchase_date' => 'nullable',
-            'mac_address' => 'nullable',
-            'replaced' => 'nullable',
-        ]);
-
-        $vidrl = Vidrl::create($requestData);
-
-        return (new VidrlResource($vidrl))
-            ->additional(['message' => 'Resource was created ']);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Vidrl  $rmh
+     * @param  \App\Vidrl  $vidrl
      * @return \Illuminate\Http\Response
      */
     public function show(Vidrl $vidrl)
     {
-        return new VidrlResource($vidrl);
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Vidrl  $vidrl
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Vidrl $vidrl)
+    {
+        //
     }
 
     /**
@@ -86,10 +91,7 @@ class VidrlController extends Controller
      */
     public function update(Request $request, Vidrl $vidrl)
     {
-        $vidrl->update($request->all());
-
-        return (new VidrlResource($vidrl->fresh()))
-            ->additional(['message' => 'Resource was updated']);
+        //
     }
 
     /**
@@ -100,8 +102,6 @@ class VidrlController extends Controller
      */
     public function destroy(Vidrl $vidrl)
     {
-        $vidrl->delete();
-
-        return response()->json(['message' => 'Resource was deleted']);
+        //
     }
 }

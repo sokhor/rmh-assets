@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mhpmobile;
 use Illuminate\Http\Request;
-use App\Exports\RpsExport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Controllers\Controller;
+use App\Imports\MhpmobilesImport;
 
-class RpExportController extends Controller
+class MhpmobileImportController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,9 +15,12 @@ class RpExportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function __invoke(Request $request)
     {
-        return Excel::download(new RpsExport, 'Rps.xlsx');
+        //return $request->file('excelFile')->getFilename();
+
+        Excel::import(new MhpmobilesImport, $request->file('excelFile'));
+
+        return response()->json(['message' => 'Successfully imported'], 201);
     }
 }

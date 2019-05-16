@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-card>
         <v-card-title>
-          <h3 ml-0>Royal Melbourne Hospital</h3>
+          <h3 ml-0>VIDRL Hospital</h3>
         </v-card-title>
         <v-card-text>
           <v-flex ml-0 row md12>
@@ -29,12 +29,15 @@
         <v-data-table
           :headers="headers"
           :items="items"
+          :rows-per-page-items="rowsPerPageItems"
           :pagination.sync="pagination"
           :total-items="totalItems"
           :loading="loading"
         >
-          <template v-slot:items="props">         
-            <td>{{ props.item.asset_code }}</td>
+          <template v-slot:items="props">            
+            <td>
+              <a href="#" @click.prevent="editItem(props.item)">{{props.item.asset_code }}</a>
+            </td>
             <td>{{ props.item.os }}</td>
             <td>{{ props.item.building }}</td>
             <td>{{ props.item.campus }}</td>
@@ -49,7 +52,6 @@
             <td>{{ props.item.purchase_date }}</td>
             <td>{{ props.item.mac_address }}</td>
             <td>{{ props.item.replaced }}</td>
-
             <td class="justify-center layout px-0">
               <v-icon
                 small
@@ -90,7 +92,7 @@
     >
       {{ snackbarText }}
     </v-snackbar>
-    <input type="file" id="excelFile" ref="excelFile" @change="importExcel"/>
+    <input type="file" id="excelFile" ref="excelFile" @change="importExcel" style="display: none;"/>
   </v-layout>
 </template>
 
@@ -101,7 +103,7 @@ import FormComponent from './form'
 import ConfirmDialog from '@/components/confirm-dialog.vue'
 
 export default {
-  name: 'vidrl',
+  name: 'rmh',
   components: { FormComponent, ConfirmDialog },
   data () {
     return {
@@ -111,7 +113,10 @@ export default {
       totalItems: 0,
       items: [],
       loading: false,
-      pagination: {},
+      rowsPerPageItems: [10, 15, 20, 25, 30, 35, 40],
+      pagination: {
+        rowsPerPage: 15
+      },
       headers: [
         {
           text: 'Asset',
@@ -196,7 +201,9 @@ export default {
 
         this.fetchData()
       } catch (error) {
-        console.error(error)
+          this.snackbar = true
+          this.snackbarColor = 'error'
+          this.snackbarText = error.response.data.message
       }
 
       this.importing = false

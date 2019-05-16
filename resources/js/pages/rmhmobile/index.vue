@@ -8,10 +8,11 @@
         <v-card-text>
           <v-flex ml-0 row md12>
             <v-btn color="#117fa2" @click="dialog = true" class="white--text">New</v-btn>
-            <v-btn color="#117fa2" @click="dialog = true" class="white--text">Import</v-btn>
+            <v-btn color="#117fa2" @click="$refs.excelFile.click()" class="white--text" :loading="importing">Import</v-btn>
             <v-btn 
             color="warning" 
-            @click="dialog = true"
+            @click="exportExcel"
+            :loading="exporting"
             >Export
             <v-icon right dark>cloud_download</v-icon>
             </v-btn>
@@ -28,12 +29,15 @@
         <v-data-table
           :headers="headers"
           :items="items"
+          :rows-per-page-items="rowsPerPageItems"
           :pagination.sync="pagination"
           :total-items="totalItems"
           :loading="loading"
         >
           <template v-slot:items="props">            
-            <td>{{ props.item.asset_code }}</td>
+            <td>
+              <a href="#" @click.prevent="editItem(props.item)">{{props.item.asset_code }}</a>
+            </td>
             <td>{{ props.item.os }}</td>
             <td>{{ props.item.building }}</td>
             <td>{{ props.item.campus }}</td>
@@ -88,11 +92,13 @@
     >
       {{ snackbarText }}
     </v-snackbar>
+    <input type="file" id="excelFile" ref="excelFile" @change="importExcel" style="display: none;"/>
   </v-layout>
 </template>
 
 <script>
-import { debounce } from 'lodash'
+import { debounce, last, trim } from 'lodash'
+import { saveAs } from 'file-saver'
 import FormComponent from './form'
 import ConfirmDialog from '@/components/confirm-dialog.vue'
 
@@ -107,7 +113,10 @@ export default {
       totalItems: 0,
       items: [],
       loading: false,
-      pagination: {},
+      rowsPerPageItems: [10, 15, 20, 25, 30, 35, 40],
+      pagination: {
+        rowsPerPage: 15
+      },
       headers: [
         {
           text: 'Asset',
@@ -134,6 +143,8 @@ export default {
       snackbar: false,
       snackbarColor: '',
       snackbarText: '',
+      importing: false,
+      exporting: false
     }
   },
   methods: {
@@ -179,6 +190,41 @@ export default {
       this.snackbar = evt.snackbar
       this.snackbarColor = evt.snackbarColor
       this.snackbarText = evt.snackbarText
+    },
+    async importExcel() {
+      let excelFile = this.$refs.excelFile.files[0]
+
+      this.importing = true
+
+      try {
+        let response = await this.$store.dispatch('rmhmobile/importExcel', excelFile)
+
+        this.fetchData()
+      } catch (error) {
+          this.snackbar = true
+          this.snackbarColor = 'error'
+          this.snackbarText = error.response.data.message
+      }
+
+      this.importing = false
+    },
+    async exportExcel() {
+      this.exporting = true
+
+      try {
+        let response = await this.$store.dispatch('rmhmobile/exportExcel')
+
+        const blob = new Blob([response.data], {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        })
+        const fileName = trim(last(last(response.headers['content-disposition'].split(';')).split('=')))
+
+        saveAs(blob, fileName);
+      } catch (error) {
+        console.error(error)
+      }
+
+      this.exporting = false
     }
   },
   watch: {

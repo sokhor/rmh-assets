@@ -22,7 +22,7 @@
         <v-flex xs12 md4>
           <v-text-field
             v-model="form.services"
-            label="Service"
+            label="Building"
           ></v-text-field>
         </v-flex>
         <v-flex xs12 md4>
@@ -34,7 +34,7 @@
         <v-flex xs12 md4>
           <v-text-field
             v-model="form.team"
-            label="Team"
+            label="Department"
           ></v-text-field>
         </v-flex>
         <v-flex xs12 md4>
@@ -70,7 +70,7 @@
         <v-flex xs12 md4>
           <v-text-field
             v-model="form.ram"
-            label="RAM"
+            label="Ram"
           ></v-text-field>
         </v-flex>
         <v-flex xs12 md4>
@@ -124,7 +124,7 @@
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn flat @click="$emit('close')">Cancel</v-btn>
-      <v-btn color="primary" @click="save">Save</v-btn>
+      <v-btn dark color="#117fa2" @click="save">Save</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -152,7 +152,6 @@ export default {
       printer_mapped: null,
       replaced: null
     }
-
     return {
       newForm: newForm,
       form: Object.assign({}, newForm),
@@ -162,13 +161,15 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedItem.id !== undefined ? 'Edit MHP Assets' : 'Create New MHP Assets'
+      return this.editedItem.id !== undefined ? 'Edit MHP Assets' : 'Create MHP Assets'
     }
   },
   methods: {
     async save() {
       this.saving = true
+
       let action = this.editedItem.id !== undefined ? 'update' : 'store'
+
       try {
         let response = await this.$store.dispatch(`mhp/${action}`, this.form)   
         
@@ -184,6 +185,7 @@ export default {
           snackbarText: error.message
         })
       }
+
       this.saving = false
     }
   },
@@ -194,6 +196,7 @@ export default {
           for(let prop in this.form) {
             this.form[prop] = editedItem[prop]
           }
+
           this.$set(this.form, 'id', editedItem.id)
         } else {
           this.form = Object.assign({}, this.newForm)

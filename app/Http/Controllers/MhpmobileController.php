@@ -38,21 +38,20 @@ class MhpmobileController extends Controller
     {
         $requestData = $request->validate([
             'asset_code' => 'required',
-            'os' => 'required',
+            'os' => 'nullable',
             'services' => 'nullable',
-            'campus' => 'required',
+            'campus' => 'nullable',
             'team' => 'nullable',
-            'floor' => 'required',
+            'floor' => 'nullable',
             'location' => 'nullable',
-            'serial_number' => 'required',
-            'make' => 'required',
-            'model' => 'required',
+            'serial_number' => 'nullable',
+            'make' => 'nullable',
+            'model' => 'nullable',
             'ram' => 'nullable',
             'notes' => 'nullable',
             'purchase_date' => 'nullable',
             'mac_address' => 'nullable',
             'printer_mapped' => 'nullable',
-            'replaced' => 'nullable'
         ]);
 
         $mhpmobile = Mhpmobile::create($requestData);

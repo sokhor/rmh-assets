@@ -444,7 +444,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'rmh',
+  name: 'rp',
   components: {
     FormComponent: _form__WEBPACK_IMPORTED_MODULE_3__["default"],
     ConfirmDialog: _components_confirm_dialog_vue__WEBPACK_IMPORTED_MODULE_4__["default"]

@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-card>
         <v-card-title>
-          <h3 ml-0>Melbourne Hospital Principle</h3>
+          <h3 ml-0>Royal Melbourne Hospital</h3>
         </v-card-title>
         <v-card-text>
           <v-flex ml-0 row md12>
@@ -29,16 +29,19 @@
         <v-data-table
           :headers="headers"
           :items="items"
+          :rows-per-page-items="rowsPerPageItems"
           :pagination.sync="pagination"
           :total-items="totalItems"
           :loading="loading"
         >
           <template v-slot:items="props">            
-            <td>{{ props.item.asset_code }}</td>
+            <td>
+              <a href="#" @click.prevent="editItem(props.item)">{{props.item.asset_code }}</a>
+            </td>
             <td>{{ props.item.os }}</td>
-            <td>{{ props.item.services }}</td>
+            <td>{{ props.item.building }}</td>
             <td>{{ props.item.campus }}</td>
-            <td>{{ props.item.team }}</td>
+            <td>{{ props.item.department }}</td>
             <td>{{ props.item.floor }}</td>
             <td>{{ props.item.location }}</td>
             <td>{{ props.item.serial_number }}</td>
@@ -48,7 +51,6 @@
             <td>{{ props.item.notes }}</td>
             <td>{{ props.item.purchase_date }}</td>
             <td>{{ props.item.mac_address }}</td>
-            <td>{{ props.item.printer_mapped }}</td>
             <td>{{ props.item.replaced }}</td>
             <td class="justify-center layout px-0">
               <v-icon
@@ -90,7 +92,7 @@
     >
       {{ snackbarText }}
     </v-snackbar>
-    <input type="file" id="excelFile" ref="excelFile" @change="importExcel"/>
+    <input type="file" id="excelFile" ref="excelFile" @change="importExcel" style="display: none;"/>
   </v-layout>
 </template>
 
@@ -111,15 +113,18 @@ export default {
       totalItems: 0,
       items: [],
       loading: false,
-      pagination: {},
+      rowsPerPageItems: [10, 15, 20, 25, 30, 35, 40],
+      pagination: {
+        rowsPerPage: 15
+      },
       headers: [
         {
           text: 'Asset',
           align: 'left',
           value: 'asset_code'
         },
-        { text: 'OS', value: 'os' },
-        { text: 'Services', value: 'services' },
+        { text: 'OS', value: 'os'},
+        { text: 'Services', value: 'services'},
         { text: 'Campus', value: 'campus' },
         { text: 'Team', value: 'team' },
         { text: 'Floor', value: 'floor' },
@@ -132,8 +137,8 @@ export default {
         { text: 'Purchase Date', value: 'purchase_date' },
         { text: 'MAC Address', value: 'mac_address' },
         { text: 'Printer Mapped', value: 'printer_mapped' },
-        { text: 'Replaced', value: 'replaced' }
-
+        { text: 'Replaced', value: 'replaced' },
+        { text: 'Action', sortable: false }
       ],
       editedItem: {},
       snackbar: false,
@@ -197,7 +202,9 @@ export default {
 
         this.fetchData()
       } catch (error) {
-        console.error(error)
+          this.snackbar = true
+          this.snackbarColor = 'error'
+          this.snackbarText = error.response.data.message
       }
 
       this.importing = false

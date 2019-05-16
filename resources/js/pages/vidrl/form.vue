@@ -118,7 +118,7 @@
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn flat @click="$emit('close')">Cancel</v-btn>
-      <v-btn color="primary" @click="save">Save</v-btn>
+      <v-btn dark color="#117fa2" @click="save">Save</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -155,13 +155,15 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedItem.id !== undefined ? 'Edit VIDRL Assets' : 'Create New VIDRL Assets'
+      return this.editedItem.id !== undefined ? 'Edit VIDRL Assets' : 'Create VIDRL Assets'
     }
   },
   methods: {
     async save() {
       this.saving = true
+
       let action = this.editedItem.id !== undefined ? 'update' : 'store'
+
       try {
         let response = await this.$store.dispatch(`vidrl/${action}`, this.form)   
         
@@ -177,6 +179,7 @@ export default {
           snackbarText: error.message
         })
       }
+
       this.saving = false
     }
   },

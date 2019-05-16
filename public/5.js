@@ -239,7 +239,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     formTitle: function formTitle() {
-      return this.editedItem.id !== undefined ? 'Edit VIDRL Assets' : 'Create New VIDRL Assets';
+      return this.editedItem.id !== undefined ? 'Edit VIDRL Assets' : 'Create VIDRL Assets';
     }
   },
   methods: {
@@ -437,12 +437,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'vidrl',
+  name: 'rmh',
   components: {
     FormComponent: _form__WEBPACK_IMPORTED_MODULE_3__["default"],
     ConfirmDialog: _components_confirm_dialog_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -455,7 +457,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       totalItems: 0,
       items: [],
       loading: false,
-      pagination: {},
+      rowsPerPageItems: [10, 15, 20, 25, 30, 35, 40],
+      pagination: {
+        rowsPerPage: 15
+      },
       headers: [{
         text: 'Asset',
         align: 'left',
@@ -644,18 +649,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 response = _context3.sent;
                 this.fetchData();
-                _context3.next = 12;
+                _context3.next = 14;
                 break;
 
               case 9:
                 _context3.prev = 9;
                 _context3.t0 = _context3["catch"](2);
-                console.error(_context3.t0);
+                this.snackbar = true;
+                this.snackbarColor = 'error';
+                this.snackbarText = _context3.t0.response.data.message;
 
-              case 12:
+              case 14:
                 this.importing = false;
 
-              case 13:
+              case 15:
               case "end":
                 return _context3.stop();
             }
@@ -1256,7 +1263,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-btn",
-            { attrs: { color: "primary" }, on: { click: _vm.save } },
+            { attrs: { dark: "", color: "#117fa2" }, on: { click: _vm.save } },
             [_vm._v("Save")]
           )
         ],
@@ -1299,9 +1306,7 @@ var render = function() {
             "v-card",
             [
               _c("v-card-title", [
-                _c("h3", { attrs: { "ml-0": "" } }, [
-                  _vm._v("Royal Melbourne Hospital")
-                ])
+                _c("h3", { attrs: { "ml-0": "" } }, [_vm._v("VIDRL Hospital")])
               ]),
               _vm._v(" "),
               _c(
@@ -1384,6 +1389,7 @@ var render = function() {
                   attrs: {
                     headers: _vm.headers,
                     items: _vm.items,
+                    "rows-per-page-items": _vm.rowsPerPageItems,
                     pagination: _vm.pagination,
                     "total-items": _vm.totalItems,
                     loading: _vm.loading
@@ -1398,7 +1404,21 @@ var render = function() {
                       key: "items",
                       fn: function(props) {
                         return [
-                          _c("td", [_vm._v(_vm._s(props.item.asset_code))]),
+                          _c("td", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.editItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v(_vm._s(props.item.asset_code))]
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.item.os))]),
                           _vm._v(" "),
@@ -1542,6 +1562,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         ref: "excelFile",
+        staticStyle: { display: "none" },
         attrs: { type: "file", id: "excelFile" },
         on: { change: _vm.importExcel }
       })

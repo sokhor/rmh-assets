@@ -2,21 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Vidrl;
+use App\Mhp;
 use Illuminate\Http\Request;
-use App\Http\Resources\VidrlResource;
+use App\Http\Resources\MhpResource;
 
-class VidrlController extends Controller
+class MhpRemovedController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $vidrl = Vidrl::when(request()->search, function($query) {
+        $rmhs = Mhp::onlyTrashed()->when(request()->search, function($query) {
             $query
             ->orWhere('asset_code', 'LIKE', '%' . request()->search . '%')
             ->orWhere('os', 'LIKE', '%' . request()->search . '%')
-            ->orWhere('building', 'LIKE', '%' . request()->search . '%')
+            ->orWhere('services', 'LIKE', '%' . request()->search . '%')
             ->orWhere('campus', 'LIKE', '%' . request()->search . '%')
-            ->orWhere('department', 'LIKE', '%' . request()->search . '%')
+            ->orWhere('team', 'LIKE', '%' . request()->search . '%')
             ->orWhere('floor', 'LIKE', '%' . request()->search . '%')
             ->orWhere('location', 'LIKE', '%' . request()->search . '%')
             ->orWhere('serial_number', 'LIKE', '%' . request()->search . '%')
@@ -26,12 +31,24 @@ class VidrlController extends Controller
             ->orWhere('notes', 'LIKE', '%' . request()->search . '%')
             ->orWhere('purchase_date', 'LIKE', '%' . request()->search . '%')
             ->orWhere('mac_address', 'LIKE', '%' . request()->search . '%')
+            ->orWhere('printer_mapped', 'LIKE', '%' . request()->search . '%')
             ->orWhere('replaced', 'LIKE', '%' . request()->search . '%');
+
         })
         ->latest()
         ->paginate(request()->rowsPerPage);
 
-        return VidrlResource::collection($vidrl);
+        return MhpResource::collection($rmhs);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -42,66 +59,51 @@ class VidrlController extends Controller
      */
     public function store(Request $request)
     {
-        $requestData = $request->validate([
-            'asset_code' => 'required',
-            'os' => 'nullable',
-            'building' => 'nullable',
-            'campus' => 'nullable',
-            'department' => 'nullable',
-            'floor' => 'nullable',
-            'location' => 'nullable',
-            'serial_number' => 'nullable',
-            'make' => 'nullable',
-            'model' => 'nullable',
-            'ram' => 'nullable',
-            'notes' => 'nullable',
-            'purchase_date' => 'nullable',
-            'mac_address' => 'nullable',
-            'replaced' => 'nullable',
-        ]);
-
-        $vidrl = Vidrl::create($requestData);
-
-        return (new VidrlResource($vidrl))
-            ->additional(['message' => 'Resource was created ']);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Vidrl  $rmh
+     * @param  \App\Mhp  $mhp
      * @return \Illuminate\Http\Response
      */
-    public function show(Vidrl $vidrl)
+    public function show(Mhp $mhp)
     {
-        return new VidrlResource($vidrl);
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Mhp  $mhp
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Mhp $mhp)
+    {
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Vidrl  $vidrl
+     * @param  \App\Mhp  $mhp
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vidrl $vidrl)
+    public function update(Request $request, Mhp $mhp)
     {
-        $vidrl->update($request->all());
-
-        return (new VidrlResource($vidrl->fresh()))
-            ->additional(['message' => 'Resource was updated']);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Vidrl  $vidrl
+     * @param  \App\Mhp  $mhp
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vidrl $vidrl)
+    public function destroy(Mhp $mhp)
     {
-        $vidrl->delete();
-
-        return response()->json(['message' => 'Resource was deleted']);
+        //
     }
 }

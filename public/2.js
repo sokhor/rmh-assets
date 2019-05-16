@@ -246,7 +246,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     formTitle: function formTitle() {
-      return this.editedItem.id !== undefined ? 'Edit MHP Assets' : 'Create New MHP Assets';
+      return this.editedItem.id !== undefined ? 'Edit MHP Assets' : 'Create MHP Assets';
     }
   },
   methods: {
@@ -444,6 +444,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -462,7 +464,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       totalItems: 0,
       items: [],
       loading: false,
-      pagination: {},
+      rowsPerPageItems: [10, 15, 20, 25, 30, 35, 40],
+      pagination: {
+        rowsPerPage: 15
+      },
       headers: [{
         text: 'Asset',
         align: 'left',
@@ -512,6 +517,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         text: 'Replaced',
         value: 'replaced'
+      }, {
+        text: 'Action',
+        sortable: false
       }],
       editedItem: {},
       snackbar: false,
@@ -651,18 +659,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 response = _context3.sent;
                 this.fetchData();
-                _context3.next = 12;
+                _context3.next = 14;
                 break;
 
               case 9:
                 _context3.prev = 9;
                 _context3.t0 = _context3["catch"](2);
-                console.error(_context3.t0);
+                this.snackbar = true;
+                this.snackbarColor = 'error';
+                this.snackbarText = _context3.t0.response.data.message;
 
-              case 12:
+              case 14:
                 this.importing = false;
 
-              case 13:
+              case 15:
               case "end":
                 return _context3.stop();
             }
@@ -950,7 +960,7 @@ var render = function() {
                 { attrs: { xs12: "", md4: "" } },
                 [
                   _c("v-text-field", {
-                    attrs: { label: "Service" },
+                    attrs: { label: "Building" },
                     model: {
                       value: _vm.form.services,
                       callback: function($$v) {
@@ -986,7 +996,7 @@ var render = function() {
                 { attrs: { xs12: "", md4: "" } },
                 [
                   _c("v-text-field", {
-                    attrs: { label: "Team" },
+                    attrs: { label: "Department" },
                     model: {
                       value: _vm.form.team,
                       callback: function($$v) {
@@ -1094,7 +1104,7 @@ var render = function() {
                 { attrs: { xs12: "", md4: "" } },
                 [
                   _c("v-text-field", {
-                    attrs: { label: "RAM" },
+                    attrs: { label: "Ram" },
                     model: {
                       value: _vm.form.ram,
                       callback: function($$v) {
@@ -1281,7 +1291,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-btn",
-            { attrs: { color: "primary" }, on: { click: _vm.save } },
+            { attrs: { dark: "", color: "#117fa2" }, on: { click: _vm.save } },
             [_vm._v("Save")]
           )
         ],
@@ -1325,7 +1335,7 @@ var render = function() {
             [
               _c("v-card-title", [
                 _c("h3", { attrs: { "ml-0": "" } }, [
-                  _vm._v("Melbourne Hospital Principle")
+                  _vm._v("Royal Melbourne Hospital")
                 ])
               ]),
               _vm._v(" "),
@@ -1409,6 +1419,7 @@ var render = function() {
                   attrs: {
                     headers: _vm.headers,
                     items: _vm.items,
+                    "rows-per-page-items": _vm.rowsPerPageItems,
                     pagination: _vm.pagination,
                     "total-items": _vm.totalItems,
                     loading: _vm.loading
@@ -1423,15 +1434,29 @@ var render = function() {
                       key: "items",
                       fn: function(props) {
                         return [
-                          _c("td", [_vm._v(_vm._s(props.item.asset_code))]),
+                          _c("td", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.editItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v(_vm._s(props.item.asset_code))]
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.item.os))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(props.item.services))]),
+                          _c("td", [_vm._v(_vm._s(props.item.building))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.item.campus))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(props.item.team))]),
+                          _c("td", [_vm._v(_vm._s(props.item.department))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.item.floor))]),
                           _vm._v(" "),
@@ -1450,8 +1475,6 @@ var render = function() {
                           _c("td", [_vm._v(_vm._s(props.item.purchase_date))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.item.mac_address))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(props.item.printer_mapped))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.item.replaced))]),
                           _vm._v(" "),
@@ -1569,6 +1592,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         ref: "excelFile",
+        staticStyle: { display: "none" },
         attrs: { type: "file", id: "excelFile" },
         on: { change: _vm.importExcel }
       })

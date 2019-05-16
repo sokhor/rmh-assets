@@ -98423,12 +98423,12 @@ var routes = [{
 }, {
   path: '/removed-mhp',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedmhp */ "./resources/js/pages/removeditems/removedmhp/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedmhp */ "./resources/js/pages/removeditems/removedmhp/index.vue"));
   }
 }, {
   path: '/removed-vidrl',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedvidrl */ "./resources/js/pages/removeditems/removedvidrl/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedvidrl */ "./resources/js/pages/removeditems/removedvidrl/index.vue"));
   }
 }, {
   path: '/rmhmobile',
@@ -98762,6 +98762,42 @@ var actions = {
     })["catch"](function (error) {
       return Promise.reject(error.response.data);
     });
+  },
+  importExcel: function importExcel(context, excelFile) {
+    var formData = new FormData();
+    formData.append('excelFile', excelFile);
+    return _http_client__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/mhpmobile/import', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+  },
+  exportExcel: function exportExcel(context) {
+    return _http_client__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/mhpmobile/export', {
+      responseType: 'arraybuffer'
+    });
+  },
+  fetchRemoved: function fetchRemoved(context) {
+    var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+        search = _ref2.search,
+        sortBy = _ref2.sortBy,
+        descending = _ref2.descending,
+        page = _ref2.page,
+        rowsPerPage = _ref2.rowsPerPage;
+
+    return _http_client__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/removed-mhpmobile', {
+      params: {
+        search: search,
+        sortBy: sortBy,
+        descending: descending,
+        page: page,
+        rowsPerPage: rowsPerPage
+      }
+    }).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error.response.data);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -98932,6 +98968,42 @@ var actions = {
   },
   destroy: function destroy(context, id) {
     return _http_client__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/rmhmobile/".concat(id)).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error.response.data);
+    });
+  },
+  importExcel: function importExcel(context, excelFile) {
+    var formData = new FormData();
+    formData.append('excelFile', excelFile);
+    return _http_client__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/rmhmobile/import', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+  },
+  exportExcel: function exportExcel(context) {
+    return _http_client__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/rmhmobile/export', {
+      responseType: 'arraybuffer'
+    });
+  },
+  fetchRemoved: function fetchRemoved(context) {
+    var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+        search = _ref2.search,
+        sortBy = _ref2.sortBy,
+        descending = _ref2.descending,
+        page = _ref2.page,
+        rowsPerPage = _ref2.rowsPerPage;
+
+    return _http_client__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/removed-rmhmobile', {
+      params: {
+        search: search,
+        sortBy: sortBy,
+        descending: descending,
+        page: page,
+        rowsPerPage: rowsPerPage
+      }
+    }).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error.response.data);
