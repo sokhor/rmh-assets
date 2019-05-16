@@ -227,7 +227,7 @@ var render = function() {
             [
               _c("v-card-title", [
                 _c("h3", { attrs: { "ml-0": "" } }, [
-                  _vm._v("Removed Melbourne Hospital Principle")
+                  _vm._v("Removed Melbourne Health Principle")
                 ])
               ]),
               _vm._v(" "),

@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-card>
         <v-card-title>
-          <h3 ml-0>Royal Melbourne Hospital</h3>
+          <h3 ml-0>Melbourne Health Hospital</h3>
         </v-card-title>
         <v-card-text>
           <v-flex ml-0 row md12>

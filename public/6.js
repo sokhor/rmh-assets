@@ -1335,7 +1335,7 @@ var render = function() {
             [
               _c("v-card-title", [
                 _c("h3", { attrs: { "ml-0": "" } }, [
-                  _vm._v("Royal Melbourne Hospital Mobile")
+                  _vm._v("Melbourne Health Principle Mobile")
                 ])
               ]),
               _vm._v(" "),
