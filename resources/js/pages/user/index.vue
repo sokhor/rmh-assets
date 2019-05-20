@@ -21,6 +21,7 @@
         <v-data-table
           :headers="headers"
           :items="items"
+          :rows-per-page-items="rowsPerPageItems"
           :pagination.sync="pagination"
           :total-items="totalItems"
           :loading="loading"
@@ -105,6 +106,10 @@ export default {
       pagination: {},
       totalItems: 0,
       loading: false,
+      rowsPerPageItems: [10, 15, 20, 25, 30, 35, 40],
+      pagination: {
+        rowsPerPage: 15
+      },
       dialogCreate: false,
       dialogEdit: false,
       editedItem: {},
