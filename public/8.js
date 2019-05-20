@@ -80,6 +80,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'dashboard',
   data: function data() {
@@ -161,7 +170,7 @@ var render = function() {
     [
       _c(
         "v-flex",
-        { attrs: { "pa-3": "", "mp-2": "", xs12: "" } },
+        { attrs: { "pa-3": "" } },
         [
           _c(
             "v-hover",
@@ -230,7 +239,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-flex",
-        { attrs: { "pa-3": "", "mp-2": "", xs12: "" } },
+        { attrs: { "pa-3": "" } },
         [
           _c(
             "v-hover",
@@ -299,7 +308,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-flex",
-        { attrs: { "pa-3": "", "mp-2": "", xs12: "" } },
+        { attrs: { "pa-3": "" } },
         [
           _c(
             "v-hover",

@@ -1,9 +1,12 @@
 <template>
 <v-layout>
-  <v-flex pa-3 mp-2 xs12>
+  <v-flex pa-3>
     <v-hover>
-      <v-card color="#FF9800" class="white--text card-dash" @click="$router.push('/rmh')">
-          <v-layout>
+      <v-card 
+      color="#FF9800" 
+      class="white--text card-dash" 
+      @click="$router.push('/rmh')">
+          <v-layout >
           <v-flex xs5 pa-2 py-3>
               <i class="fab fa-buffer fa-7x"></i>
           </v-flex>
@@ -22,9 +25,12 @@
     </v-hover>
   </v-flex>
 
-  <v-flex pa-3 mp-2 xs12>
+  <v-flex pa-3>
     <v-hover>
-      <v-card color="blue-grey darken-2" class="white--text card-dash" @click="$router.push('/rp')"> 
+      <v-card 
+      color="blue-grey darken-2" 
+      class="white--text card-dash" 
+      @click="$router.push('/rp')"> 
           <v-layout>
           <v-flex xs5 pa-2 py-3>
             <i class="fas fa-boxes fa-7x"></i>
@@ -44,9 +50,12 @@
     </v-hover>
   </v-flex>
 
-  <v-flex pa-3 mp-2 xs12>
+  <v-flex pa-3>
     <v-hover>
-      <v-card color="#4CAF50" class="white--text card-dash" @click="$router.push('/mhp')">
+      <v-card 
+      color="#4CAF50" 
+      class="white--text card-dash" 
+      @click="$router.push('/mhp')">
           <v-layout>
           <v-flex xs5 pa-2 py-3>
             <i class="fab fa-accusoft fa-7x"></i>
@@ -65,7 +74,7 @@
       </v-card>
     </v-hover>
   </v-flex>
-  
+
   </v-layout>
 </template>
 

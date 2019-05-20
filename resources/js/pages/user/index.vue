@@ -97,8 +97,8 @@ export default {
       headers: [
         { text: 'Username', value: 'username' },
         { text: 'Email', value: 'email' },
-        { text: 'Telephone', value: 'telephone' },
         { text: 'Department', value: 'department' },
+        { text: 'Telephone', value: 'telephone' },
         { text: 'Action', sortable: false }
       ],
       items: [],

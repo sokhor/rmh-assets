@@ -479,11 +479,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: 'Email',
         value: 'email'
       }, {
-        text: 'Telephone',
-        value: 'telephone'
-      }, {
         text: 'Department',
         value: 'department'
+      }, {
+        text: 'Telephone',
+        value: 'telephone'
       }, {
         text: 'Action',
         sortable: false

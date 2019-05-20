@@ -98381,7 +98381,7 @@ var routes = [{
 }, {
   path: '/rmh',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./pages/rmh */ "./resources/js/pages/rmh/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./pages/rmh */ "./resources/js/pages/rmh/index.vue"));
   },
   meta: {
     requiresAuth: true
@@ -98389,7 +98389,7 @@ var routes = [{
 }, {
   path: '/rp',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./pages/rp */ "./resources/js/pages/rp/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./pages/rp */ "./resources/js/pages/rp/index.vue"));
   },
   meta: {
     requiresAuth: true
@@ -98405,7 +98405,7 @@ var routes = [{
 }, {
   path: '/vidrl',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./pages/vidrl */ "./resources/js/pages/vidrl/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./pages/vidrl */ "./resources/js/pages/vidrl/index.vue"));
   },
   meta: {
     requiresAuth: true
@@ -98423,17 +98423,17 @@ var routes = [{
 }, {
   path: '/removed-mhp',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedmhp */ "./resources/js/pages/removeditems/removedmhp/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedmhp */ "./resources/js/pages/removeditems/removedmhp/index.vue"));
   }
 }, {
   path: '/removed-vidrl',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedvidrl */ "./resources/js/pages/removeditems/removedvidrl/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./pages/removeditems/removedvidrl */ "./resources/js/pages/removeditems/removedvidrl/index.vue"));
   }
 }, {
   path: '/rmhmobile',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./pages/rmhmobile */ "./resources/js/pages/rmhmobile/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./pages/rmhmobile */ "./resources/js/pages/rmhmobile/index.vue"));
   },
   meta: {
     requiresAuth: false
@@ -98441,7 +98441,7 @@ var routes = [{
 }, {
   path: '/mhpmobile',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./pages/mhpmobile */ "./resources/js/pages/mhpmobile/index.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./pages/mhpmobile */ "./resources/js/pages/mhpmobile/index.vue"));
   },
   meta: {
     requiresAuth: false
