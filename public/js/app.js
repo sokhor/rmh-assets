@@ -56135,7 +56135,7 @@ var render = function() {
                     "v-list-tile-title",
                     [
                       _c("v-icon", [_vm._v("fas fa-sign-out-alt")]),
-                      _vm._v(" Signout\n        ")
+                      _vm._v(" Logout\n        ")
                     ],
                     1
                   )

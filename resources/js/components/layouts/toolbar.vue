@@ -31,7 +31,7 @@
       <v-list>
         <v-list-tile @click="logout">
           <v-list-tile-title>
-            <v-icon>fas fa-sign-out-alt</v-icon> Signout
+            <v-icon>fas fa-sign-out-alt</v-icon> Logout
           </v-list-tile-title>
         </v-list-tile>
       </v-list>
